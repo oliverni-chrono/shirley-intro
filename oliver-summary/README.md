@@ -1,18 +1,18 @@
-# Shirley Shi 个人介绍
+# Oliver Ni 个人介绍
 
 探索星辰，感知命运，书写人生 ✨
 
 ## 📋 个人信息
 
-- **姓名**: Shirley Shi
-- **出生**: 1990年6月22日 下午5点
+- **姓名**: Oliver Ni
+- **出生**: 1990年6月27日 下午6点
 - **星座**: 巨蟹座 ♋
 - **生肖**: 马 🐴 (庚午年)
-- **八字**: 庚午 壬午 丙戌 丁酉
+- **八字**: 庚午 壬午 辛丑 丁酉
 
 ## 🌐 在线访问
 
-访问此页面: [https://oliverni-chrono.github.io/oliverni/shirley-summary/](https://oliverni-chrono.github.io/oliverni/shirley-summary/)
+访问此页面: [https://oliverni-chrono.github.io/oliverni/oliver-summary/](https://oliverni-chrono.github.io/oliverni/oliver-summary/)
 
 ## 🎨 设计特色
 

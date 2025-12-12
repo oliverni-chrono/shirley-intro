@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join Us - Get Started Today</title>
+    <style>
+        /* Design Tokens - CSS Variables */
+        :root {
+            /* Brand Colors */
+            --color-primary: #FE5706;
+            --color-primary-dark: #E04D05;
+            --color-secondary: #FFA147;
+            --color-background: #010100;
+            --color-surface: #1A1A1A;
+            --color-surface-elevated: #2A2A2A;
+            --color-text-primary: #E6E6E6;
+            --color-text-secondary: #999999;
+            --color-success: #10B981;
+            --color-error: #EF4444;
+            --color-border: #333333;
+
+            /* Spacing (8px base unit) */
+            --spacing-xs: 4px;
+            --spacing-sm: 8px;
+            --spacing-md: 16px;
+            --spacing-lg: 24px;
+            --spacing-xl: 32px;
+            --spacing-2xl: 48px;
+            --spacing-3xl: 64px;
+            --spacing-4xl: 80px;
+            --spacing-5xl: 120px;
+
+            /* Typography */
+            --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            --font-size-xs: 12px;
+            --font-size-sm: 14px;
+            --font-size-base: 16px;
+            --font-size-lg: 18px;
+            --font-size-xl: 20px;
+            --font-size-2xl: 24px;
+            --font-size-3xl: 30px;
+            --font-size-4xl: 36px;
+            --font-size-5xl: 48px;
+
+            /* Border Radius */
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 16px;
+            --radius-xl: 20px;
+            --radius-full: 9999px;
+
+            /* Shadows */
+            --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.5);
+            --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.6);
+            --shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.7);
+            --shadow-button: 0 4px 12px rgba(254, 87, 6, 0.3);
+
+            /* Animation */
+            --animation-fast: 150ms;
+            --animation-normal: 200ms;
+            --animation-slow: 300ms;
+            --easing-primary: cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* Reset & Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-primary);
+            font-size: var(--font-size-base);
+            line-height: 1.5;
+            color: var(--color-text-primary);
+            background: var(--color-background);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Header - Sticky Navigation */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 70px;
+            background: rgba(1, 1, 0, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--color-border);
+            z-index: 1000;
+            transition: box-shadow var(--animation-normal) var(--easing-primary);
+        }
+
+        .header.scrolled {
+            box-shadow: var(--shadow-md);
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: var(--font-size-2xl);
+            font-weight: 700;
+            color: var(--color-primary);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: none;
+            gap: var(--spacing-xl);
+        }
+
+        .nav-links a {
+            color: var(--color-text-secondary);
+            text-decoration: none;
+            font-size: var(--font-size-base);
+            transition: color var(--animation-normal);
+        }
+
+        .nav-links a:hover {
+            color: var(--color-text-primary);
+        }
+
+        .header-cta {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            height: 44px;
+            padding: 0 20px;
+            background: var(--color-primary);
+            color: white;
+            border: none;
+            border-radius: var(--radius-full);
+            font-size: var(--font-size-base);
+            font-weight: 600;
+            cursor: pointer;
+            transition: opacity var(--animation-fast) var(--easing-primary);
+            text-decoration: none;
+        }
+
+        .header-cta:active {
+            opacity: 0.8;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            padding: 90px 20px 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #010100 0%, #1A1A1A 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 50%, rgba(254, 87, 6, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .hero-container {
+            max-width: 600px;
+            width: 100%;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-headline {
+            font-size: 36px;
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: var(--spacing-lg);
+            text-align: center;
+            background: linear-gradient(135deg, var(--color-text-primary) 0%, var(--color-secondary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subheadline {
+            font-size: var(--font-size-lg);
+            line-height: 1.6;
+            color: var(--color-text-secondary);
+            margin-bottom: var(--spacing-2xl);
+            text-align: center;
+        }
+
+        /* Form Container */
+        .form-container {
+            background: var(--color-surface);
+            border-radius: var(--radius-lg);
+            padding: 32px;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid var(--color-border);
+        }
+
+        .form-title {
+            font-size: var(--font-size-2xl);
+            font-weight: 600;
+            margin-bottom: var(--spacing-sm);
+            text-align: center;
+        }
+
+        .form-subtitle {
+            font-size: var(--font-size-sm);
+            color: var(--color-text-secondary);
+            margin-bottom: var(--spacing-xl);
+            text-align: center;
+        }
+
+        /* Form Elements */
+        .form-group {
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .form-label {
+            display: block;
+            font-size: var(--font-size-sm);
+            font-weight: 500;
+            color: var(--color-text-primary);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .form-label .required {
+            color: var(--color-error);
+        }
+
+        .form-input {
+            width: 100%;
+            height: 52px;
+            padding: 0 16px;
+            background: var(--color-background);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-md);
+            color: var(--color-text-primary);
+            font-size: var(--font-size-base);
+            font-family: var(--font-primary);
+            transition: border-color var(--animation-normal) var(--easing-primary);
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: var(--color-primary);
+            border-width: 2px;
+            padding: 0 15px; /* Compensate for border width */
+        }
+
+        .form-input::placeholder {
+            color: rgba(153, 153, 153, 0.6);
+        }
+
+        .form-input.error {
+            border-color: var(--color-error);
+        }
+
+        .error-message {
+            display: none;
+            font-size: var(--font-size-xs);
+            color: var(--color-error);
+            margin-top: var(--spacing-sm);
+        }
+
+        .error-message.show {
+            display: block;
+        }
+
+        /* Select Dropdown */
+        select.form-input {
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M5 7.5L10 12.5L15 7.5' stroke='%23999999' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 16px center;
+            padding-right: 48px;
+            cursor: pointer;
+        }
+
+        /* Checkbox Group */
+        .checkbox-group {
+            display: flex;
+            align-items: flex-start;
+            gap: var(--spacing-md);
+        }
+
+        .checkbox-wrapper {
+            position: relative;
+            width: 24px;
+            height: 24px;
+            flex-shrink: 0;
+        }
+
+        .form-checkbox {
+            position: absolute;
+            opacity: 0;
+            width: 44px;
+            height: 44px;
+            margin: -10px;
+            cursor: pointer;
+        }
+
+        .checkbox-custom {
+            position: absolute;
+            width: 24px;
+            height: 24px;
+            border: 2px solid var(--color-border);
+            border-radius: 6px;
+            background: var(--color-background);
+            transition: all var(--animation-normal) var(--easing-primary);
+            pointer-events: none;
+        }
+
+        .form-checkbox:checked + .checkbox-custom {
+            background: var(--color-primary);
+            border-color: var(--color-primary);
+        }
+
+        .form-checkbox:checked + .checkbox-custom::after {
+            content: '';
+            position: absolute;
+            top: 3px;
+            left: 7px;
+            width: 6px;
+            height: 10px;
+            border: solid white;
+            border-width: 0 2px 2px 0;
+            transform: rotate(45deg);
+        }
+
+        .checkbox-label {
+            font-size: var(--font-size-sm);
+            color: var(--color-text-secondary);
+            line-height: 1.5;
+            flex: 1;
+        }
+
+        .checkbox-label a {
+            color: var(--color-primary);
+            text-decoration: none;
+        }
+
+        .checkbox-label a:hover {
+            text-decoration: underline;
+        }
+
+        /* Submit Button */
+        .submit-button {
+            width: 100%;
+            height: 56px;
+            background: var(--color-primary);
+            color: white;
+            border: none;
+            border-radius: var(--radius-md);
+            font-size: var(--font-size-lg);
+            font-weight: 600;
+            cursor: pointer;
+            transition: opacity var(--animation-fast) var(--easing-primary);
+            box-shadow: var(--shadow-button);
+        }
+
+        .submit-button:active {
+            opacity: 0.8;
+            transform: scale(0.98);
+        }
+
+        .submit-button:disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+        }
+
+        .submit-button.loading {
+            position: relative;
+            color: transparent;
+        }
+
+        .submit-button.loading::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 24px;
+            height: 24px;
+            margin: -12px 0 0 -12px;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            border-top-color: white;
+            border-radius: 50%;
+            animation: spinner 0.6s linear infinite;
+        }
+
+        @keyframes spinner {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Trust Indicators */
+        .trust-indicators {
+            margin-top: var(--spacing-lg);
+            text-align: center;
+        }
+
+        .trust-text {
+            font-size: var(--font-size-xs);
+            color: var(--color-text-secondary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--spacing-sm);
+        }
+
+        .trust-icon {
+            width: 16px;
+            height: 16px;
+            color: var(--color-success);
+        }
+
+        /* Success Message */
+        .success-message {
+            display: none;
+            text-align: center;
+            padding: var(--spacing-2xl);
+        }
+
+        .success-message.show {
+            display: block;
+        }
+
+        .success-icon {
+            width: 64px;
+            height: 64px;
+            margin: 0 auto var(--spacing-lg);
+            background: var(--color-success);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: scaleIn 0.3s var(--easing-primary);
+        }
+
+        @keyframes scaleIn {
+            from {
+                transform: scale(0);
+            }
+            to {
+                transform: scale(1);
+            }
+        }
+
+        .success-title {
+            font-size: var(--font-size-2xl);
+            font-weight: 600;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .success-text {
+            font-size: var(--font-size-base);
+            color: var(--color-text-secondary);
+        }
+
+        /* Desktop Styles */
+        @media (min-width: 768px) {
+            .header-container {
+                padding: 0 40px;
+            }
+
+            .nav-links {
+                display: flex;
+            }
+
+            .hero {
+                padding: 100px 40px 64px;
+            }
+
+            .hero-headline {
+                font-size: 56px;
+            }
+
+            .hero-subheadline {
+                font-size: var(--font-size-xl);
+            }
+
+            .form-container {
+                padding: 48px;
+            }
+
+            .form-title {
+                font-size: var(--font-size-3xl);
+            }
+        }
+
+        /* Accessibility - Reduced Motion */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="header-container">
+            <a href="#" class="logo">HyperEcho</a>
+            <nav class="nav-links">
+                <a href="#features">Features</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+            </nav>
+            <a href="#signup" class="header-cta">Get Started</a>
+        </div>
+    </header>
+
+    <!-- Hero Section with Form -->
+    <section class="hero" id="signup">
+        <div class="hero-container">
+            <h1 class="hero-headline">Start Your Journey Today</h1>
+            <p class="hero-subheadline">Join thousands of users who are already experiencing the future. Fill out the form below to get started.</p>
+            
+            <div class="form-container">
+                <div id="formContent">
+                    <h2 class="form-title">Create Your Account</h2>
+                    <p class="form-subtitle">Takes less than 2 minutes</p>
+                    
+                    <form id="signupForm" novalidate>
+                        <!-- Full Name -->
+                        <div class="form-group">
+                            <label for="fullName" class="form-label">
+                                Full Name <span class="required">*</span>
+                            </label>
+                            <input 
+                                type="text" 
+                                id="fullName" 
+                                name="fullName" 
+                                class="form-input" 
+                                placeholder="John Doe"
+                                required
+                                autocomplete="name"
+                            >
+                            <div class="error-message" id="fullNameError">Please enter your full name</div>
+                        </div>
+
+                        <!-- Email -->
+                        <div class="form-group">
+                            <label for="email" class="form-label">
+                                Email Address <span class="required">*</span>
+                            </label>
+                            <input 
+                                type="email" 
+                                id="email" 
+                                name="email" 
+                                class="form-input" 
+                                placeholder="john@example.com"
+                                required
+                                autocomplete="email"
+                            >
+                            <div class="error-message" id="emailError">Please enter a valid email address</div>
+                        </div>
+
+                        <!-- Phone -->
+                        <div class="form-group">
+                            <label for="phone" class="form-label">
+                                Phone Number
+                            </label>
+                            <input 
+                                type="tel" 
+                                id="phone" 
+                                name="phone" 
+                                class="form-input" 
+                                placeholder="+1 (555) 000-0000"
+                                autocomplete="tel"
+                            >
+                            <div class="error-message" id="phoneError">Please enter a valid phone number</div>
+                        </div>
+
+                        <!-- Company -->
+                        <div class="form-group">
+                            <label for="company" class="form-label">
+                                Company Name
+                            </label>
+                            <input 
+                                type="text" 
+                                id="company" 
+                                name="company" 
+                                class="form-input" 
+                                placeholder="Your Company"
+                                autocomplete="organization"
+                            >
+                        </div>
+
+                        <!-- Role/Position -->
+                        <div class="form-group">
+                            <label for="role" class="form-label">
+                                Your Role <span class="required">*</span>
+                            </label>
+                            <select id="role" name="role" class="form-input" required>
+                                <option value="">Select your role</option>
+                                <option value="developer">Developer</option>
+                                <option value="designer">Designer</option>
+                                <option value="manager">Manager</option>
+                                <option value="executive">Executive</option>
+                                <option value="other">Other</option>
+                            </select>
+                            <div class="error-message" id="roleError">Please select your role</div>
+                        </div>
+
+                        <!-- Terms and Conditions -->
+                        <div class="form-group">
+                            <div class="checkbox-group">
+                                <div class="checkbox-wrapper">
+                                    <input 
+                                        type="checkbox" 
+                                        id="terms" 
+                                        name="terms" 
+                                        class="form-checkbox"
+                                        required
+                                    >
+                                    <div class="checkbox-custom"></div>
+                                </div>
+                                <label for="terms" class="checkbox-label">
+                                    I agree to the <a href="#terms">Terms of Service</a> and <a href="#privacy">Privacy Policy</a>
+                                </label>
+                            </div>
+                            <div class="error-message" id="termsError">You must agree to the terms and conditions</div>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <button type="submit" class="submit-button">
+                            Get Started
+                        </button>
+
+                        <!-- Trust Indicators -->
+                        <div class="trust-indicators">
+                            <p class="trust-text">
+                                <svg class="trust-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                                </svg>
+                                Your data is secure and encrypted
+                            </p>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Success Message (Hidden by default) -->
+                <div class="success-message" id="successMessage">
+                    <div class="success-icon">
+                        <svg width="32" height="32" fill="none" stroke="white" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7" />
+                        </svg>
+                    </div>
+                    <h3 class="success-title">Welcome Aboard! 🎉</h3>
+                    <p class="success-text">Thank you for signing up. We've sent a confirmation email to your inbox.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Header scroll effect
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Form validation and submission
+        const form = document.getElementById('signupForm');
+        const formContent = document.getElementById('formContent');
+        const successMessage = document.getElementById('successMessage');
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            // Reset errors
+            document.querySelectorAll('.error-message').forEach(el => el.classList.remove('show'));
+            document.querySelectorAll('.form-input').forEach(el => el.classList.remove('error'));
+            
+            let isValid = true;
+
+            // Validate full name
+            const fullName = document.getElementById('fullName');
+            if (!fullName.value.trim()) {
+                showError('fullName', 'fullNameError');
+                isValid = false;
+            }
+
+            // Validate email
+            const email = document.getElementById('email');
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!email.value.trim() || !emailRegex.test(email.value)) {
+                showError('email', 'emailError');
+                isValid = false;
+            }
+
+            // Validate role
+            const role = document.getElementById('role');
+            if (!role.value) {
+                showError('role', 'roleError');
+                isValid = false;
+            }
+
+            // Validate terms
+            const terms = document.getElementById('terms');
+            if (!terms.checked) {
+                showError('terms', 'termsError');
+                isValid = false;
+            }
+
+            if (!isValid) {
+                return;
+            }
+
+            // Show loading state
+            const submitButton = form.querySelector('.submit-button');
+            submitButton.classList.add('loading');
+            submitButton.disabled = true;
+
+            // Simulate API call
+            await new Promise(resolve => setTimeout(resolve, 1500));
+
+            // Collect form data
+            const formData = {
+                fullName: fullName.value,
+                email: email.value,
+                phone: document.getElementById('phone').value,
+                company: document.getElementById('company').value,
+                role: role.value,
+                timestamp: new Date().toISOString()
+            };
+
+            console.log('Form submitted:', formData);
+
+            // Show success message
+            formContent.style.display = 'none';
+            successMessage.classList.add('show');
+
+            // Optional: Send data to server
+            // try {
+            //     const response = await fetch('/api/signup', {
+            //         method: 'POST',
+            //         headers: { 'Content-Type': 'application/json' },
+            //         body: JSON.stringify(formData)
+            //     });
+            //     const result = await response.json();
+            // } catch (error) {
+            //     console.error('Error:', error);
+            // }
+        });
+
+        function showError(inputId, errorId) {
+            document.getElementById(inputId).classList.add('error');
+            document.getElementById(errorId).classList.add('show');
+        }
+
+        // Clear error on input
+        document.querySelectorAll('.form-input, .form-checkbox').forEach(input => {
+            input.addEventListener('input', () => {
+                input.classList.remove('error');
+                const errorId = input.id + 'Error';
+                document.getElementById(errorId)?.classList.remove('show');
+            });
+        });
+    </script>
+</body>
+</html>
+
+
+

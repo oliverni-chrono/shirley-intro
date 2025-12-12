@@ -5,13 +5,13 @@
 ## 🌟 在线访问
 
 - **主页**: [https://oliverni-chrono.github.io/oliverni/](https://oliverni-chrono.github.io/oliverni/)
-- **个人介绍**: [https://oliverni-chrono.github.io/oliverni/shirley-summary/](https://oliverni-chrono.github.io/oliverni/shirley-summary/)
+- **个人介绍**: [https://oliverni-chrono.github.io/oliverni/oliver-summary/](https://oliverni-chrono.github.io/oliverni/oliver-summary/)
 
 ## 📱 特性
 
-- 🌙 **星座信息**: 巨蟹座详细介绍
+- 🌙 **星座信息**: 巨蟹座 (1990年6月27日)
 - 🐴 **生肖属相**: 1990年庚午马年
-- ☯️ **八字命盘**: 完整四柱八字展示
+- ☯️ **八字命盘**: 庚午 壬午 辛丑 丁酉
 - 🎨 **神秘主题**: 紫色渐变 + 星空背景
 - 📱 **响应式设计**: 完美支持移动端和桌面端
 - ✨ **优雅动画**: 滚动触发和悬停效果
@@ -21,7 +21,7 @@
 ```
 oliverni/
 ├── index.html              # 项目导航页
-├── shirley-summary/        # Shirley 个人介绍
+├── oliver-summary/         # Oliver Ni 个人介绍
 │   └── index.html         # 介绍页面主文件
 ├── summary1212/           # CEO Deck (其他项目)
 ├── landing-page.html      # 信息收集页面 (示例)
@@ -36,7 +36,7 @@ git clone https://github.com/oliverni-chrono/oliverni.git
 cd oliverni
 
 # 在浏览器中打开
-open shirley-summary/index.html
+open oliver-summary/index.html
 ```
 
 ## 📄 导出 PDF
@@ -47,7 +47,7 @@ open shirley-summary/index.html
 
 ```bash
 # 编辑文件
-code shirley-summary/index.html
+code oliver-summary/index.html
 
 # 提交更改
 git add .

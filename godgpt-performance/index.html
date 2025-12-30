@@ -32,173 +32,119 @@
             background: var(--color-background);
             color: var(--color-text-primary);
             min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             padding: var(--spacing-2xl);
             line-height: 1.6;
         }
 
         .container {
-            max-width: 1200px;
-            margin: 0 auto;
+            max-width: 800px;
+            width: 100%;
+            text-align: center;
         }
 
         /* Header */
         .header {
-            text-align: center;
             margin-bottom: var(--spacing-3xl);
-            padding: var(--spacing-2xl) 0;
         }
 
         .header h1 {
-            font-size: 48px;
+            font-size: 56px;
             font-weight: 700;
             color: var(--color-primary);
-            margin-bottom: 16px;
+            margin-bottom: 24px;
             text-shadow: 0 2px 8px rgba(254, 87, 6, 0.3);
         }
 
-        .header p {
-            font-size: 18px;
+        .tagline {
+            font-size: 20px;
             color: var(--color-text-secondary);
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        /* Card Grid */
-        .card-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: var(--spacing-xl);
-            margin-bottom: var(--spacing-3xl);
-        }
-
-        .report-card {
-            background: var(--color-surface);
-            border-radius: var(--radius-card);
-            padding: var(--spacing-xl);
-            box-shadow: var(--shadow-card);
-            border: 1px solid rgba(254, 87, 6, 0.1);
-            transition: all 0.3s ease;
-            cursor: pointer;
-            text-decoration: none;
-            display: block;
-        }
-
-        .report-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 24px rgba(254, 87, 6, 0.2);
-            border-color: var(--color-primary);
-        }
-
-        .report-card h2 {
-            font-size: 28px;
-            font-weight: 700;
-            color: var(--color-primary);
             margin-bottom: 16px;
         }
 
-        .report-card p {
-            font-size: 16px;
-            color: var(--color-text-secondary);
-            margin-bottom: var(--spacing-lg);
-            line-height: 1.6;
-        }
-
-        .report-meta {
-            display: flex;
-            gap: 16px;
-            flex-wrap: wrap;
-            margin-bottom: 20px;
-        }
-
-        .meta-item {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 14px;
-            color: var(--color-text-secondary);
-        }
-
-        .meta-icon {
-            width: 20px;
-            height: 20px;
-            opacity: 0.7;
-        }
-
-        .view-button {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 12px 24px;
-            background: var(--color-primary);
-            color: white;
-            border-radius: 10px;
-            font-size: 16px;
+        .tagline a {
+            color: var(--color-primary);
+            text-decoration: none;
             font-weight: 600;
             transition: all 0.2s ease;
-            border: none;
-            cursor: pointer;
         }
 
-        .view-button:hover {
-            opacity: 0.9;
-            transform: scale(0.98);
+        .tagline a:hover {
+            color: var(--color-secondary);
+            text-decoration: underline;
         }
 
-        .view-button:active {
-            opacity: 0.8;
-            transform: scale(0.95);
+        /* Links Section */
+        .links-section {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin-top: var(--spacing-2xl);
         }
 
-        /* Stats Section */
-        .stats-section {
+        .link-item {
             background: var(--color-surface);
             border-radius: var(--radius-card);
-            padding: var(--spacing-xl);
-            margin-bottom: var(--spacing-3xl);
+            padding: 28px 40px;
             box-shadow: var(--shadow-card);
+            border: 2px solid rgba(254, 87, 6, 0.1);
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
         }
 
-        .stats-section h2 {
-            font-size: 24px;
-            font-weight: 700;
-            color: var(--color-primary);
-            margin-bottom: var(--spacing-lg);
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: var(--spacing-lg);
-        }
-
-        .stat-item {
-            text-align: center;
-            padding: 20px;
+        .link-item:hover {
+            transform: translateX(8px);
+            box-shadow: 0 8px 24px rgba(254, 87, 6, 0.3);
+            border-color: var(--color-primary);
             background: rgba(254, 87, 6, 0.05);
-            border-radius: 12px;
-            border: 1px solid rgba(254, 87, 6, 0.1);
         }
 
-        .stat-value {
-            font-size: 36px;
-            font-weight: 700;
+        .link-item:active {
+            transform: translateX(6px) scale(0.98);
+        }
+
+        .link-content {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            flex: 1;
+            text-align: left;
+        }
+
+        .link-icon {
+            font-size: 32px;
+            line-height: 1;
+        }
+
+        .link-text {
+            font-size: 24px;
+            font-weight: 600;
+            color: var(--color-text-primary);
+        }
+
+        .link-arrow {
+            font-size: 28px;
             color: var(--color-primary);
-            margin-bottom: 8px;
+            transition: transform 0.3s ease;
         }
 
-        .stat-label {
-            font-size: 14px;
-            color: var(--color-text-secondary);
-            text-transform: uppercase;
-            letter-spacing: 1px;
+        .link-item:hover .link-arrow {
+            transform: translateX(4px);
         }
 
         /* Footer */
         .footer {
-            text-align: center;
-            padding: var(--spacing-xl) 0;
+            margin-top: var(--spacing-3xl);
+            padding-top: var(--spacing-xl);
             color: var(--color-text-secondary);
             font-size: 14px;
+            border-top: 1px solid rgba(254, 87, 6, 0.1);
         }
 
         /* Responsive */
@@ -208,15 +154,27 @@
             }
 
             .header h1 {
-                font-size: 36px;
+                font-size: 40px;
             }
 
-            .card-grid {
-                grid-template-columns: 1fr;
+            .tagline {
+                font-size: 16px;
             }
 
-            .stats-grid {
-                grid-template-columns: 1fr;
+            .link-item {
+                padding: 20px 24px;
+            }
+
+            .link-text {
+                font-size: 18px;
+            }
+
+            .link-icon {
+                font-size: 24px;
+            }
+
+            .link-arrow {
+                font-size: 20px;
             }
         }
     </style>
@@ -225,80 +183,43 @@
     <div class="container">
         <header class="header">
             <h1>GodGPT Performance Overview</h1>
-            <p>Comprehensive analytics and insights for GodGPT performance metrics</p>
+            <p class="tagline">
+                Your spiritual guidance starts here: 
+                <a href="https://godgpt.fun/en" target="_blank" rel="noopener noreferrer">https://godgpt.fun/en</a>
+            </p>
         </header>
 
-        <div class="stats-section">
-            <h2>Quick Stats</h2>
-            <div class="stats-grid">
-                <div class="stat-item">
-                    <div class="stat-value">41K+</div>
-                    <div class="stat-label">Total Users</div>
+        <div class="links-section">
+            <!-- Creative Performance -->
+            <a href="creative-performance.html" class="link-item">
+                <div class="link-content">
+                    <span class="link-icon">🎨</span>
+                    <span class="link-text">Creative Performance</span>
                 </div>
-                <div class="stat-item">
-                    <div class="stat-value">169</div>
-                    <div class="stat-label">Total Subscriptions</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-value">0.4%</div>
-                    <div class="stat-label">Conversion Rate</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-value">14%</div>
-                    <div class="stat-label">Repeat Purchase</div>
-                </div>
-            </div>
-                </div>
-
-        <div class="card-grid">
-            <!-- User Profile Analysis Card -->
-            <a href="user-profile-analysis.html" class="report-card">
-                <h2>📊 User Profile Analysis</h2>
-                <div class="report-meta">
-                    <div class="meta-item">
-                        <span class="meta-icon">📅</span>
-                        <span>Updated: Dec 30, 2024</span>
-                    </div>
-                    <div class="meta-item">
-                        <span class="meta-icon">📄</span>
-                        <span>8 Slides</span>
-                    </div>
-                </div>
-                <p>Comprehensive user demographics breakdown including geographic distribution, age groups, gender split, platform usage, subscription behavior, and strategic recommendations.</p>
-                <p style="font-size: 14px; margin-bottom: 20px;">
-                    <strong>Key Insights:</strong> Top regions (EU 33%, SE Asia 24%, US 9%), Age focus (25-44 years), Platform split (Web 55%, iOS 35%), Weekly Premium plan most popular.
-                </p>
-                <button class="view-button">
-                    View Report →
-                </button>
+                <span class="link-arrow">→</span>
             </a>
 
-            <!-- Creative Performance Card -->
-            <a href="creative-performance.html" class="report-card">
-                <h2>🎨 Creative Performance</h2>
-                <div class="report-meta">
-                    <div class="meta-item">
-                        <span class="meta-icon">📅</span>
-                        <span>Week 51 (Dec 9-15)</span>
-                    </div>
-                    <div class="meta-item">
-                        <span class="meta-icon">💰</span>
-                        <span>$2,009 Total Spend</span>
-                    </div>
+            <!-- Weekly Ads Plan -->
+            <a href="https://docs.google.com/spreadsheets/d/1gqB6YsLDn7KuU9HMcgB_C6KBEKrPpboPTTSPFjow4Hg/edit?gid=111679088#gid=111679088" target="_blank" rel="noopener noreferrer" class="link-item">
+                <div class="link-content">
+                    <span class="link-icon">📅</span>
+                    <span class="link-text">Weekly Ads Plan</span>
                 </div>
-                <p>Weekly advertising performance analysis covering GodGPT app installs and Lumen sign-ups across TikTok, Meta, and Google platforms.</p>
-                <p style="font-size: 14px; margin-bottom: 20px;">
-                    <strong>Best Performers:</strong> TikTok Boost Carousel (S$7.69 per signup), Google Video (S$14.00 CPI), Carousel format 4x better than video.
-                </p>
-                <button class="view-button">
-                    View Report →
-                </button>
+                <span class="link-arrow">→</span>
             </a>
+
+            <!-- User Profile Analysis -->
+            <a href="user-profile-analysis.html" class="link-item">
+                <div class="link-content">
+                    <span class="link-icon">📊</span>
+                    <span class="link-text">User Profile Analysis</span>
                 </div>
+                <span class="link-arrow">→</span>
+            </a>
+        </div>
 
         <footer class="footer">
             <p>Created with 🌌 cosmic energy · 2025</p>
-            <p style="margin-top: 8px;">GodGPT Performance Analytics Dashboard</p>
         </footer>
     </div>
 </body>

@@ -6,14 +6,14 @@
 
 - **主页**: [https://oliverni-chrono.github.io/oliverni/](https://oliverni-chrono.github.io/oliverni/)
 - **个人介绍**: [https://oliverni-chrono.github.io/oliverni/oliver-summary/](https://oliverni-chrono.github.io/oliverni/oliver-summary/)
-- **Sample Projects**: [https://oliverni-chrono.github.io/oliverni/same-projects/](https://oliverni-chrono.github.io/oliverni/same-projects/)
+- **Sample Projects**: [https://oliverni-chrono.github.io/oliverni/sample-project/](https://oliverni-chrono.github.io/oliverni/sample-project/)
 
 ---
 
 ## 📁 Projects
 
 ### 1. Weather Now ☀️
-**Location**: `/same-projects/weather/`
+**Location**: `/sample-project/weather/`
 
 A beautiful, modern weather application featuring:
 - Real-time weather data with OpenWeatherMap API
@@ -26,7 +26,7 @@ A beautiful, modern weather application featuring:
 
 **Tech Stack**: HTML5, CSS3, Vanilla JavaScript
 
-**Live Demo**: [View Weather App](./same-projects/weather/)
+**Live Demo**: [View Weather App](./sample-project/weather/)
 
 **Features**:
 - 🌡️ Current temperature and weather conditions
@@ -75,7 +75,7 @@ oliverni/
 ├── index.html                    # 项目导航页
 ├── oliver-summary/               # Oliver Ni 个人介绍
 │   └── index.html               # 介绍页面主文件
-├── same-projects/                # 示例项目集合
+├── sample-project/              # 示例项目集合
 │   └── weather/                 # Weather Now 应用
 │       ├── index.html
 │       ├── styles.css
@@ -98,7 +98,7 @@ cd oliverni
 # 在浏览器中打开
 open index.html
 # 或打开具体项目
-open same-projects/weather/index.html
+open sample-project/weather/index.html
 open oliver-summary/index.html
 ```
 

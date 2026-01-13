@@ -4,7 +4,7 @@
 
 // Configuration
 const CONFIG = {
-  API_KEY: 'YOUR_OPENWEATHERMAP_API_KEY', // Replace with your API key
+  API_KEY: '31d9c108ba455925878af10a17979a0c', // OpenWeatherMap API key
   API_URL: 'https://api.openweathermap.org/data/2.5/weather',
   CACHE_DURATION: 5 * 60 * 1000, // 5 minutes
   DEFAULT_UNITS: 'metric', // 'metric' for Celsius, 'imperial' for Fahrenheit

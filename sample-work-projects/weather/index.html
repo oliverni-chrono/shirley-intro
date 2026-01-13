@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Beautiful weather app with real-time weather information">
+    <meta name="theme-color" content="#3B82F6">
+    <title>Weather Now</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>☀️</text></svg>">
+</head>
+<body>
+    <main class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1 class="app-title">Weather Now</h1>
+            <button class="icon-btn refresh-btn" id="refreshBtn" aria-label="Refresh weather">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21.5 2v6h-6M2.5 22v-6h6M2 11.5a10 10 0 0 1 18.8-4.3M22 12.5a10 10 0 0 1-18.8 4.2"/>
+                </svg>
+            </button>
+        </header>
+
+        <!-- Weather Card -->
+        <article class="weather-card" id="weatherCard">
+            <!-- Loading State -->
+            <div class="loading-state" id="loadingState">
+                <div class="skeleton skeleton-icon"></div>
+                <div class="skeleton skeleton-temp"></div>
+                <div class="skeleton skeleton-location"></div>
+                <div class="skeleton-details">
+                    <div class="skeleton skeleton-detail"></div>
+                    <div class="skeleton skeleton-detail"></div>
+                    <div class="skeleton skeleton-detail"></div>
+                </div>
+            </div>
+
+            <!-- Error State -->
+            <div class="error-state hidden" id="errorState">
+                <div class="error-icon">⚠️</div>
+                <h2 class="error-title">Unable to Load Weather</h2>
+                <p class="error-message" id="errorMessage">Please check your connection and try again.</p>
+                <button class="btn btn-primary" id="retryBtn">Try Again</button>
+            </div>
+
+            <!-- Success State -->
+            <div class="weather-content hidden" id="weatherContent">
+                <div class="weather-icon" id="weatherIcon">☀️</div>
+                <div class="temperature" id="temperature">--°</div>
+                <div class="weather-condition" id="weatherCondition">--</div>
+                <div class="location" id="location">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                        <circle cx="12" cy="10" r="3"/>
+                    </svg>
+                    <span id="locationName">--</span>
+                </div>
+
+                <!-- Weather Details -->
+                <div class="weather-details">
+                    <div class="detail-item">
+                        <div class="detail-label">Feels Like</div>
+                        <div class="detail-value" id="feelsLike">--°</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Humidity</div>
+                        <div class="detail-value" id="humidity">--%</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Wind Speed</div>
+                        <div class="detail-value" id="windSpeed">-- km/h</div>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+        <!-- Location Search (Optional) -->
+        <div class="search-section">
+            <div class="search-container">
+                <input 
+                    type="text" 
+                    class="search-input" 
+                    id="searchInput" 
+                    placeholder="Search city..."
+                    aria-label="Search city"
+                >
+                <button class="btn btn-primary search-btn" id="searchBtn">Search</button>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p class="footer-text">Data powered by OpenWeatherMap</p>
+            <p class="footer-hint">Allow location access for automatic detection</p>
+        </footer>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+</html>
+
+

@@ -111,3 +111,6 @@ curl -s "http://prometheus:9090/api/v1/query_range?..." | python3 calculate_subs
 
 
 
+
+
+
